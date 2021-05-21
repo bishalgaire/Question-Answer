@@ -25,7 +25,7 @@ with ZipFile(file_name, 'r') as zip:
 doc_dir = "data_times"
 
 #instance for document store
-document_store = ElasticsearchDocumentStore(host="elasticsearch", username="", password="", index="document")
+document_store = ElasticsearchDocumentStore(host="localhost", username="", password="", index="document")
 
 # Convert files to dicts
 dicts = convert_files_to_dicts(dir_path=doc_dir,clean_func=clean_wiki_text,split_paragraphs=True)

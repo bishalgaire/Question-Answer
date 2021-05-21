@@ -10,7 +10,7 @@ logger.basicConfig(level="INFO")
 app = Flask(__name__)
 logger.info("Loading restapi.")
 
-document_store = ElasticsearchDocumentStore(host="elasticsearch", username="", password="", index="document")
+document_store = ElasticsearchDocumentStore(host="localhost", username="", password="", index="document")
 logger.info("Initialization Of DPR.")
 retriever = DensePassageRetriever(document_store=document_store,
                                   query_embedding_model="facebook/dpr-question_encoder-single-nq-base",

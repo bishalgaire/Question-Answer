@@ -1,0 +1,45 @@
+version: "3.4"
+
+services:
+  restapi:
+    restart: always
+    build:
+      context: ./Elastic-DPR
+    
+    expose:
+      - "5000"
+    depends_on:
+      - elasticsearch
+    networks: 
+      - haystack
+
+  streamlit:
+    restart: always
+    build:
+      context: ./streamlit
+    ports:
+      - "5005:5005"
+    depends_on:
+      - restapi
+    networks:
+      - haystack
+
+  elasticsearch:
+    image: 'docker.elastic.co/elasticsearch/elasticsearch:7.9.2'
+    expose:
+      - '9200'
+      - '9300'
+    environment:
+      - discovery.type=single-node        
+    volumes:
+      - data:/usr/share/elasticsearch/data
+    networks:
+      - haystack
+
+volumes:
+  data:
+    driver: local
+
+networks:
+  haystack:
+    driver: bridge

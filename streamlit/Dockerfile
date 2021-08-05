@@ -7,7 +7,7 @@ RUN pip install -r requirements.txt
 # copy code
 COPY . /app
 
-EXPOSE 8501
+EXPOSE 5005
 
 # cmd for running the API
-CMD ["streamlit", "run", "app.py","--server.port","8501"]
+CMD ["streamlit", "run", "app.py","--server.port","5005"]

@@ -4,12 +4,12 @@ services:
   restapi:
     restart: always
     build:
-      context: ./Elastic-DPR
-    
+      context: ./Elastic-DPR    
     expose:
-      - "5000"
+      - "8000"
     depends_on:
       - elasticsearch
+    runtime: nvidia
     networks: 
       - haystack
 

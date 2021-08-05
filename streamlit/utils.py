@@ -2,7 +2,7 @@ import requests as request
 import streamlit as st
 import logging as logger
 #servicename:portnumber/predict
-url = "https://565020e7c873.ngrok.io/predict"
+url = "https://restapi:8000/predict"
 
 def format_request(question):
     """ 
@@ -11,7 +11,7 @@ def format_request(question):
     out:question in dict form.
 
     """
-    return{'questions':question}
+    return{'query':question}
 
 def get_results(response):
     """ 

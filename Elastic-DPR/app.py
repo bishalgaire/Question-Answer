@@ -20,6 +20,6 @@ async def predict(query: Query):
     logger.info("Received question")
     logger.info(f"Query: {query}")
     if query.query is not None:
-        response = pipe.run(query=query.query, top_k_retriever=10, top_k_reader=5)
+        response = pipe.run(query=query.query, top_k_retriever=5, top_k_reader=3)
         logger.info(f"Response: {response}")
         return response
